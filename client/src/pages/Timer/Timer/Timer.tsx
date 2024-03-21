@@ -80,11 +80,15 @@ export function Timer({ task, selectedProject }: TimerProps): JSX.Element {
   useEffect(() => {
     getAccount("nemLmP1npemf5VSzAKRC").then(
       (response) => {        
-        if (response.currentTimeEntry && Date.now() < response.currentTimeEntry.endTime) {
-          const timeRemaining = Math.floor((response.currentTimeEntry.endTime - Date.now())/1000);
-          setTimerValue(timeRemaining); 
-          setTimerRunning(true);
-          setMountTimerInput(false);
+        if (response.currentTimeEntry) {
+          if (Date.now() < response.currentTimeEntry.endTime) {
+            const timeRemaining = Math.floor((response.currentTimeEntry.endTime - Date.now())/1000);
+            setTimerValue(timeRemaining); 
+            setTimerRunning(true);
+            setMountTimerInput(false);
+          } else {
+            postTimeEntryStop(response.currentTimeEntry.endTime);
+          }
         }
       }
     )
