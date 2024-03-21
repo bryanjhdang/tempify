@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Pet, Project, TimeEntry, User } from "./models";
-
+        
 // Account
 export function getAccount(accountId: string): Promise<User> {
 	const createUser = (any : any): User => {

@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Flex } from "@mantine/core";
 import { NavbarSimple } from "../../components/Navbar/NavbarSimple";
 import { TaskInput } from "./TaskInput/TaskInput";
 import { Timer } from "./Timer/Timer";
-import { Project, TimeEntry } from "../../classes/models";
-import { getAccount } from "../../classes/HTTPhelpers";
+import { Project } from "../../classes/models";
 
 function TimerPage() {
   const [task, setTask] = useState<string>("");

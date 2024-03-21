@@ -27,6 +27,7 @@ export class FirestoreHelper implements DatabaseHelper {
           credential: admin.credential.cert(serviceAccount)
         });
     } else {
+        admin.initializeApp();
       console.log("\x1b[34m", "Connecting to Firestore over Google Cloud, make sure you authorized the instance to connect");
     }
 
